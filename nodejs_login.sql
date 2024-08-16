@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 17, 2020 at 03:04 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Host: localhost:3306
+-- Generation Time: Aug 16, 2024 at 11:52 PM
+-- Server version: 8.0.37-0ubuntu0.20.04.3
+-- PHP Version: 7.4.3-4ubuntu2.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `food_recipes` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(256) NOT NULL,
   `publisher` varchar(256) NOT NULL,
   `description` varchar(1000) NOT NULL,
@@ -51,7 +51,38 @@ INSERT INTO `food_recipes` (`id`, `name`, `publisher`, `description`, `img`, `pu
 (7, 'PISTACHIO CROISSANT', 'JOHN KUM', '60 grams green peas (matar) or ? cup green peas\r\n100 grams onion or 1 large onion or 1 cup thinly sliced onions\r\n1.5 to 2 tablespoons oil\r\n½ teaspoon ginger-garlic paste\r\n¼ teaspoon turmeric powder (haldi)', 'https://www.foodiesfeed.com/wp-content/uploads/2019/10/pistachio-croissant.jpg', '2'),
 (8, 'PANI PURI', 'HARI', 'PURI FILLED WITH FLAVOURED WATER ', 'https://i.pinimg.com/236x/0f/87/f1/0f87f196d1f7ec2cc9a9cbad3e58d9f9.jpg', '2'),
 (9, 'DOSA', 'KUMAR', '3/4 cup Parboiled Rice (idli-dosa rice) 3/4 cup Regular Rice 1/2 cup Whole Urad Dal (without skin) or Split Urad Dal (black lentils) 1/4 teaspoon Fenugreek Seeds (methi dana) 1/2 tablespoon Chana Dal (gram lentils), optional', 'https://files2.hungryforever.com/wp-content/uploads/2015/04/Featured-image-masala-dosa-recipe.jpg', '5'),
-(10, 'TESLA', 'HARI', '2 tablespoons vegetable oil (30 mL)\r\n5 cloves garlic, minced\r\n4 spring onions, divided\r\n2 carrots, cut into matchsticks\r\n1 cup snap pea (100 g)\r\n2 tablespoons brown sugar\r\n3 tablespoons soy sauce\r\n', 'https://www.foodiesfeed.com/wp-content/uploads/2019/07/neapolitan-pizza-margherita.jpg', '6');
+(10, 'TESLA', 'HARI', '2 tablespoons vegetable oil (30 mL)\r\n5 cloves garlic, minced\r\n4 spring onions, divided\r\n2 carrots, cut into matchsticks\r\n1 cup snap pea (100 g)\r\n2 tablespoons brown sugar\r\n3 tablespoons soy sauce\r\n', 'https://www.foodiesfeed.com/wp-content/uploads/2019/07/neapolitan-pizza-margherita.jpg', '6'),
+(11, 'iyyyyyy', 'yyyyyy', 'uuuuuuuuu', 'yyyyyyy', '8');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `title`, `content`, `img`) VALUES
+(1, 'ii', 'ii', 'ii'),
+(2, 'kk', 'kk', 'img-1723826273658.jpg'),
+(3, 'uuuuuuuuuuu', 'uuuuuuuuu', 'img-1723826307677.jpg'),
+(4, 'uuuuuuuuuuu', 'iuuuuuuuuu', 'img-1723826344183.jpg'),
+(5, 'oo', 'oo', 'img-1723826445631.jpg'),
+(6, 'kkkk', 'kkkk', 'img-1723826815121.jpg'),
+(7, 'kkkk', 'kkkk', 'img-1723826815567.jpg'),
+(8, 'kkkk', 'kkkk', 'img-1723826815931.jpg'),
+(9, 'kkkk', 'kkkk', 'img-1723826816282.jpg'),
+(10, 'mm', 'mm', 'img-1723826972586.jpg'),
+(11, 'gggg', 'ggggg', 'img-1723829259091.jpg');
 
 -- --------------------------------------------------------
 
@@ -60,7 +91,7 @@ INSERT INTO `food_recipes` (`id`, `name`, `publisher`, `description`, `img`, `pu
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `first_name` text,
   `last_name` text,
   `email` text,
@@ -79,7 +110,8 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `crea
 (4, 'newuser', 'newuser', 'newuser@gmail.com', '$2b$10$fKiqZ/Gy41c6M51m4p1F6eLd9qa5p3BlTuTDeYgAC7u7JVYwiwQQK', '2020-02-11 18:36:31'),
 (5, 'amar', 'amr', 'amar@gmail.com', '$2b$10$qFrSdL.1oSpbK.KaB8s4Le.lIZZFQ2XBphtQtqmUGw8pdLfDzi.2i', '2020-02-14 15:37:10'),
 (6, 'name', 'last', 'hello1@gmail.com', '$2b$10$/C0a9ahZPb.7O1LryIQofOfw/jkeEpRCUeTXCRY5asA0oZTdmNvFa', '2020-02-14 15:44:53'),
-(7, 'aaa', 'aaaa', 'amaresh123@gmail.com', '$2b$10$Tcz.MLUPkfmacmx6oU118eCg.zu8wE7Fc0hExL0yS7eGe5vghSng2', '2020-02-14 16:03:05');
+(7, 'aaa', 'aaaa', 'amaresh123@gmail.com', '$2b$10$Tcz.MLUPkfmacmx6oU118eCg.zu8wE7Fc0hExL0yS7eGe5vghSng2', '2020-02-14 16:03:05'),
+(8, 'shubham', 'sharma', 'shubham@gmail.com', '$2a$10$ChnYQwI1I8yYbPGv4Vy3he7SqFvve8v5EwJsI/A1An96UJqZ7Df22', '2024-08-16 15:01:05');
 
 --
 -- Indexes for dumped tables
@@ -89,6 +121,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `crea
 -- Indexes for table `food_recipes`
 --
 ALTER TABLE `food_recipes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -105,13 +143,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `food_recipes`
 --
 ALTER TABLE `food_recipes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
